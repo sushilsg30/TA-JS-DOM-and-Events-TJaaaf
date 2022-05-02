@@ -1,28 +1,29 @@
-let total = document.querySelector('.total');
-let operations = document.querySelector('.operations');
-let numbers = document.querySelector('.numbers');
-let isEqualTo = document.querySelector('.equalto');
+// let total = document.querySelector('.total');
+
+// let button = document.querySelectorAll(".button");
 
 
 
-function add(a,b) {
-    a = numbers.innerText;
-    b = numbers.innerText;
-    let c = total.innerText; 
-    c = a+b;
-    return c;
-};
+// let initialValue = 0;
 
-function handleClick(event) {
-  console.log(event.innerText);
-}
+// total.innerText = initialValue;
 
-numbers.addEventListener("click", handleClick);
+// console.log(total.innerText);
+
+// console.dir(total);
 
 
-isEqualTo.addEventListener("click", handleClick)
+
+let boxOne = document.querySelector('.one');
+let boxTwo = document.querySelector('.two');
+let btn1 = document.querySelector('.btn-one');
+let btn2 = document.querySelector('.btn-two');
 
 
-// isEqualTo.addEventListener("click", function (event) {
-//     console.log(event);
-// })
+btn1.addEventListener('click', function () {
+    boxOne.style.backgroundColor = "red";
+});
+
+btn2.addEventListener('mousemove', function () {
+    boxTwo.style.backgroundColor = "pink";
+})
