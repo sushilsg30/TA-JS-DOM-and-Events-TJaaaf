@@ -81,6 +81,8 @@ h1 {
     color: white;
     width: 100%;
     padding: 20px 0;
+    text-align: right;
+    padding-right: 10px;
     border-radius: 10px;
     font-size: 32px;
     margin-top: 10px;
@@ -122,4 +124,22 @@ h1 {
     margin-left: 35px;
     border-radius: 8px;
     font-size: 32px;
+}
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    background-color: #018080;
+}
+
+.box {
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+    background-color: white;
+
 }
