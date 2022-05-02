@@ -53,7 +53,7 @@ parentBox.append(div)
 let allBox = document.querySelectorAll('.box');
 function handleMouseClick() {
     allBox.forEach((box)=> {
-        // box.style.backgroundColor = generateRandomColor()
+        box.style.backgroundColor = generateRandomColor()
 
         box.children[0].innerText = getRandomNumber(500);
         box.querySelectorAll('h3').innerText = getRandomNumber(500);
@@ -62,3 +62,9 @@ function handleMouseClick() {
 
 parentBox.addEventListener("mousemove", handleMouseClick)
 
+
+let heading = document.querySelector('.heading');
+
+heading.addEventListener('mousemove', function () {
+    heading.style.color = generateRandomColor();
+})

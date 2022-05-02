@@ -48,7 +48,13 @@ table {
 }
 
 
+.heading {
+  text-align: center;
+  font-size: 100px;
+  font-weight: 700;
+  color: red;
 
+}
 
 
 .container {
@@ -56,7 +62,10 @@ table {
   margin: 0 auto;
 }
 
-
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .box {
   height: 4rem;
