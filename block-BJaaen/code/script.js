@@ -1,7 +1,7 @@
 let userRoot = document.querySelector('.user-icons');
 let computerRoot = document.querySelector('.computer-icons');
 let result = document.querySelector('.result')
-let reset = document.querySelector('button');
+let reset = document.querySelector('.button');
 let score = document.querySelector('.score');
 
 
