@@ -91,3 +91,55 @@ input[type='text'] {
 .terms {
   display: inline-block;
 }
+
+
+
+
+/* <div class="modal_overlay ">
+<div class="conatainer relative">
+  <button class="modal_close">X</button>
+  <h1>Hello Sameer</h1>
+  <p>Email: iankit17@gmail.com</p>
+  <p>Email: iankit17@gmail.com</p>
+  <p>Email: iankit17@gmail.com</p>
+  <p>Email: iankit17@gmail.com</p>
+  <p>Email: iankit17@gmail.com</p>
+  <p>Email: iankit17@gmail.com</p>
+  <p>You agree to terms and Conditiond</p>
+</div>
+</div>
+</div> */
+
+* {
+  box-sizing: border-box;
+}
+
+.modal_overlay {
+  background-color: rgb(234, 217, 217);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  width: 100vw;
+}
+
+.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.relative {
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  max-width: 100%;
+  border-radius: 5px;
+  text-align: center;
+
+}
+
