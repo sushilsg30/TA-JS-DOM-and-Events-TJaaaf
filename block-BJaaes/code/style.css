@@ -93,18 +93,28 @@ img {
 }
 
 input {
-  margin: 5px 0;
   width: 100%;
   font-size: 14px;
 
 }
 
-p {
-  font-size: 14px;
+.form-control {
+  margin-bottom: 20px;
+}
+small {
+  font-size: 12px;
+  color: red;
 }
 h1 {
   font-size: 24px;
   padding: 20px 0;
+}
+.error input {
+  border-color: red;
+}
+
+.success input {
+  border-color: green;
 }
 
 
