@@ -3,16 +3,7 @@ let rootElm = document.querySelector(".rootElm");
 
 
 
-let allMovie =[
-    {
-        name: "Forest Gump",
-        watched: false,
-    },
-    {
-        name: "Inception",
-        watched: false,
-    }
-]
+let allMovie =[];
 
 
 function handleSubmit(event) {
