@@ -1,58 +1,71 @@
-let input = document.querySelector(`input[type= "text"]`);
-let rootElm = document.querySelector(".rootElm");
+let inputText = document.querySelector(`input[type= "text"]`);
+let rootElm = document.querySelector("ul");
 
 
+let allTodos = [];
 
-let allMovie =[];
-
-
-function handleSubmit(event) {
-   if(event.keyCode === 13) {
-       allMovie.push({
-           name:event.target.value,
-           watched: false,
-       });
-       event.target.value = "";
-       createMovieUI();
-   }
+function handleInput(event) {
+    let value = event.target.value;
+    if(event.keyCode === 13 && value !== "") {
+        let todo = {
+            name: value,
+            isDone: false,
+        };
+        allTodos.push(todo);
+        event.target.value = "";
+        createUI();
+    }
 }
 
-input.addEventListener("keyup", handleSubmit);
 
-function createMovieUI() {
+function createUI() {
     rootElm.innerHTML = "";
-    allMovie.forEach((movie, i) => {
+    allTodos.forEach((todo,index) => {
         let li = document.createElement("li");
-        li.classList.add("checkbox-item");
         let input = document.createElement("input");
-        input.classList.add("styled-checkbox");
         input.type = "checkbox";
-        input.id = i;
-        input.checked = movie.watched;
+        input.addEventListener("input",handleToggle);
+        input.setAttribute("data-id",index);
+        input.checked = todo.isDone;
         
-        input.addEventListener('change', (event) => {
-            let id = event.target.id;
+        let p = document.createElement("p");
+        p.innerText=todo.name;
 
-            allMovie[id].watched = !allMovie[id].watched;
-        });
-        let label = document.createElement("label");
-        label.for = "i";
-        label.innerText = movie.name;
         let span = document.createElement("span");
         span.innerText = "X";
-        span.setAttribute("data-id",i);
-        span.addEventListener("click", (event) => {
-            // event.target.parentElement.remove();
-            let id = event.target.dataset.id;
-            allMovie.splice(id,1);
-            createMovieUI();
-        })
+        span.setAttribute("data-id",index)
+        span.addEventListener("click",handleDelete);
 
-        li.append(label,input,span)
+        // let span1 = document.createElement("span");
+        // span1.innerText = "All"
+        // span1.setAttribute("data-all");
+        // span1.addEventListener("click",allTasks)
+        // // let span2 = document.createElement("span");
+        // // let span3 = document.createElement("span");
+
+        li.append(input,p,span);
         rootElm.append(li);
-    });
-
+    })
 }
-createMovieUI();
 
 
+function allTasks(event) {
+console.log(event.target)
+}
+
+
+function handleDelete(event) {
+    let id = event.target.dataset.id;
+    allTodos.splice(id,1);
+    createUI();
+}
+
+function handleToggle(event) {
+    let id = event.target.dataset.id;
+    allTodos[id].isDone = !allTodos[id].isDone;
+    createUI();
+}
+
+createUI();
+
+inputText.addEventListener("keyup",handleInput);

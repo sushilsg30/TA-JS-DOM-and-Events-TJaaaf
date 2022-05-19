@@ -55,19 +55,30 @@ h1 {
     font-weight: 700;
     font-family: sans-serif;
 }
-input {
+.input {
     width: 100%;
     margin-bottom: 10px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+
 }
 .main {
     margin: 0 auto;
     width: 400px;
     padding: 32px;
-    background-color: rgb(176, 242, 242);
+    background-color: rgb(77, 215, 215);
 }
 
-.checkbox-item {
-    display: flex;
-    justify-content: space-evenly; 
-    align-items: center;
+
+
+.cross-color {
+    color: rgb(240, 10, 10);
+    font-weight: 700;
+    font-family: sans-serif;
+}
+.cross-color:hover {
+    color: rgb(202, 20, 20);
 }
