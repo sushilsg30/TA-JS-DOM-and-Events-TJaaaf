@@ -48,6 +48,10 @@ table {
 }
 
 
+body {
+    background-color: rgb(243, 208, 162);
+}
+
 h1 {
     font-size: 32px;
     margin-bottom: 20px;
@@ -69,10 +73,41 @@ li {
     margin: 0 auto;
     width: 400px;
     padding: 32px;
-    background-color: rgb(77, 215, 215);
+    background-color: rgb(131, 236, 236);
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(117, 117, 240);
+    padding: 14px 20px;
+    margin-top: 20px;
+}
+button {
+    padding: 10px 12px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
 
+.selected {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+.selected:hover {
+    padding: 10px 12px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;  
+}
+button:hover {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
 
 .cross-color {
     color: rgb(240, 10, 10);

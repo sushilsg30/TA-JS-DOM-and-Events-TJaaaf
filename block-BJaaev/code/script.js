@@ -2,7 +2,16 @@ let inputText = document.querySelector(`input[type= "text"]`);
 let rootElm = document.querySelector("ul");
 
 
-let allTodos = [];
+let all = document.querySelector(".all");
+let active = document.querySelector(".active");
+let completed = document.querySelector(".completed");
+let clear = document.querySelector(".clear");
+
+let activeButton = all;
+
+let allTodos = localStorage.getItem("allTodos") 
+? JSON.parse(localStorage.getItem("allTodos"))
+:  [];
 
 function handleInput(event) {
     let value = event.target.value;
@@ -14,13 +23,14 @@ function handleInput(event) {
         allTodos.push(todo);
         event.target.value = "";
         createUI();
+        localStorage.setItem("allTodos",JSON.stringify(allTodos));
     }
 }
 
 
-function createUI() {
+function createUI(data = allTodos) {
     rootElm.innerHTML = "";
-    allTodos.forEach((todo,index) => {
+    data.forEach((todo,index) => {
         let li = document.createElement("li");
         let input = document.createElement("input");
         input.type = "checkbox";
@@ -58,14 +68,72 @@ function handleDelete(event) {
     let id = event.target.dataset.id;
     allTodos.splice(id,1);
     createUI();
+    localStorage.setItem("allTodos",JSON.stringify(allTodos));
 }
 
 function handleToggle(event) {
     let id = event.target.dataset.id;
     allTodos[id].isDone = !allTodos[id].isDone;
     createUI();
+    localStorage.setItem("allTodos",JSON.stringify(allTodos));
 }
 
 createUI();
+
+
+
+clear.addEventListener("click", () => {
+    allTodos = allTodos.filter((todo) => !todo.isDone);
+    createUI();
+    localStorage.setItem("allTodos",JSON.stringify(allTodos));
+    activeButton = clear;
+    updateActiveButton();
+});
+
+active.addEventListener("click", () => {
+    let notCompleted = allTodos.filter((todo) => !todo.isDone);
+    createUI(notCompleted);
+    activeButton = active;
+    updateActiveButton();
+
+});
+
+completed.addEventListener("click", () => {
+    let CompletedTodos = allTodos.filter((todo) => todo.isDone);
+    createUI(CompletedTodos);
+    activeButton = completed;
+    updateActiveButton();
+
+});
+
+all.addEventListener("click", () => {
+    createUI();
+    activeButton = all;
+    updateActiveButton();
+
+});
+
+
+function updateActiveButton(btn = activeButton) {
+    all.classList.remove("selected");
+    active.classList.remove("selected");
+    completed.classList.remove("selected");
+
+    if(btn === all) {
+        all.classList.add("selected");
+    }
+
+    if(btn === active) {
+        active.classList.add("selected")
+    }
+    if(btn === completed) {
+        completed.classList.add("selected")
+    }
+
+}
+
+
+
+activeButton.classList.add("selected");
 
 inputText.addEventListener("keyup",handleInput);
