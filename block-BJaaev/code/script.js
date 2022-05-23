@@ -45,14 +45,6 @@ function createUI(data = allTodos) {
         span.innerText = "X";
         span.setAttribute("data-id",index)
         span.addEventListener("click",handleDelete);
-
-        // let span1 = document.createElement("span");
-        // span1.innerText = "All"
-        // span1.setAttribute("data-all");
-        // span1.addEventListener("click",allTasks)
-        // // let span2 = document.createElement("span");
-        // // let span3 = document.createElement("span");
-
         li.append(input,p,span);
         rootElm.append(li);
     })
